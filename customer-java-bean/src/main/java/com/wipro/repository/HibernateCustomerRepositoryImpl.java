@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wipro.model.Customer;
 
-@Repository("customerRepository")
+@Repository
 public class HibernateCustomerRepositoryImpl implements CustomerRepository {
 	
 	@Override
