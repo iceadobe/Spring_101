@@ -8,6 +8,7 @@ public class Application {
 
 		// CustomerService customerService = new CustomerServiceImpl();
 
+		@SuppressWarnings("resource")
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 		CustomerService service = appContext.getBean("customerService", CustomerService.class);
 

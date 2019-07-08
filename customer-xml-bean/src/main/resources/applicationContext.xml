@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- For Loading the properties file to the application -->
+	<context:property-placeholder location="app.properties" />
 
     <bean name="customerRepository"
-          class="com.wipro.repository.HibernateCustomerRepositoryImpl"/>
+          class="com.wipro.repository.HibernateCustomerRepositoryImpl">
+          <!-- Accessing the loaded app.properties property in value field of bean property -->
+          <property name="dbUsername" value="${dbUsername}" />
+	</bean>
 
-    <!--	Autowiring using constructor -->
+    <!--	Auto-wiring using constructor -->
     <bean name="customerService"
           class="com.wipro.service.CustomerServiceImpl" autowire="constructor"/>
+	
+
 
     <!--
         Wiring using Constructor
