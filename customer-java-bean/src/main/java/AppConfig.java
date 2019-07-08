@@ -1,22 +1,19 @@
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-@Configuration					//tells the Spring that this Java file is being used for Configuration
-@ComponentScan({"com.wipro"}) 	//adding the component scan for this configuration
+@Configuration
+@ComponentScan({ "com.wipro" })
+@PropertySource("app.properties")
 public class AppConfig {
 
-// 	After we add @Service and @Repository to respective class.
-// 	We don't have to define anything here.
-//	That's why I commented the both methods out.
-	
-//	@Bean(name = "customerService")
-//	public CustomerService getCustomerService() {
-//		return new CustomerServiceImpl();
-//	}
-
-//	@Bean(name = "customerRepository")
-//	public CustomerRepository getCustomerRepository() {
-//		return new HibernateCustomerRepositoryImpl();
-//	}
+	// To Load the content of app.properties it is mandatory that a static
+	// method like this be imported in the place
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer getPropertySourcePlaceHolderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
 
 }
