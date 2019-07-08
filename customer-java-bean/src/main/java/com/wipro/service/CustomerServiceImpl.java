@@ -14,20 +14,6 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository1;
 
-//	public CustomerServiceImpl() {}
-	
-//	public CustomerServiceImpl(CustomerRepository customerRepository) {
-//		System.out.println("Constructor Injection");
-//		this.customerRepository = customerRepository;
-//	}
-	
-//	Setter Injection with AutoWiring
-//	@Autowired
-//	public void setCustomerRepository(CustomerRepository customerRepository) {
-//		System.out.println("Setter Injection");
-//		this.customerRepository = customerRepository;
-//	}
-
 	@Override
 	public List<Customer> findAll() {
 		return customerRepository1.findAll();
