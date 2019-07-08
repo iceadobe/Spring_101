@@ -2,8 +2,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.wipro.repository.CustomerRepository;
-import com.wipro.repository.HibernateCustomerRepositoryImpl;
 import com.wipro.service.CustomerService;
 import com.wipro.service.CustomerServiceImpl;
 
@@ -13,14 +11,7 @@ public class AppConfig {
 
 	@Bean(name = "customerService")
 	public CustomerService getCustomerService() {
-		// By adding @Autowired to the CustomerServiceImpl Class.
-		// Just creating a object of the class is enough
 		return new CustomerServiceImpl();
-	}
-
-	@Bean(name = "customerRepository")
-	public CustomerRepository getCustomerRepository() {
-		return new HibernateCustomerRepositoryImpl();
 	}
 
 }

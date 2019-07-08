@@ -1,10 +1,13 @@
 package com.wipro.repository;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
 
 import com.wipro.model.Customer;
 
+@Repository("customerRepository")
 public class HibernateCustomerRepositoryImpl implements CustomerRepository {
 	
 	@Override
