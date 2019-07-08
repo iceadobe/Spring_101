@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: customer-annotation-bean
+Bundle-SymbolicName: customer-annotation-bean
+Bundle-Version: 1.0.0.qualifier
+Export-Package: .,
+ com.wipro.learning.spring,
+ com.wipro.model,
+ com.wipro.repository,
+ com.wipro.service
