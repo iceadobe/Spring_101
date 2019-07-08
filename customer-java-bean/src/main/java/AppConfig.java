@@ -13,16 +13,9 @@ public class AppConfig {
 
 	@Bean(name = "customerService")
 	public CustomerService getCustomerService() {
-		// Without Using @Autowire on the CustomerServiceImpl Class 
-		// we can still set the bean using either Constructor or Setter Injection
-
-		//Setter Injection
-		CustomerServiceImpl service = new CustomerServiceImpl();
-		service.setCustomerRepository(getCustomerRepository()); 
-		return service;
-		
-		//Constructor Injection	
-		//return new CustomerServiceImpl(getCustomerRepository());
+		// By adding @Autowired to the CustomerServiceImpl Class.
+		// Just creating a object of the class is enough
+		return new CustomerServiceImpl();
 	}
 
 	@Bean(name = "customerRepository")
